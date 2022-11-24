@@ -362,9 +362,170 @@ Human_Resource> db.employee.find().pretty();
   }
 ]
 
-------------------WIP----------------------------
+
 Question4:Query the collection "employee" and list the employees who are having salary more than 30000.
+
+Human_Resource> db.employee.find({"salary" : {$gt:"30000"}});
+[
+  {
+    _id: ObjectId("637f7c32575eca67fad43d5b"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '20000',
+    overallExp: '1',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'ECE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d5d"),
+    firstName: 'Jame',
+    lastName: 'roh',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'EEE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d5f"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '20000',
+    overallExp: '1',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'ECE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d61"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'EEE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d63"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '20000',
+    overallExp: '1',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'ECE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d65"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'EEE'
+  }
+]
+
 Question5:Query the collection "employee" and list the employees who are having experience more than 2 years.
+
+Human_Resource> db.employee.find({"overallExp" : {$gt:"2"}});
+Comment:As no data is available whose experience is greater than 2 years.
+
 Question6:Query the collection "employee" and list the employees who are graduated after 2015 and having experience more than 1 year.
+
+Human_Resource> db.employee.find({yearGrad:{$gt:"2015"},overallExp:{$gt:"1"}});
+[
+  {
+    _id: ObjectId("637f7c32575eca67fad43d59"),
+    firstName: 'John',
+    lastName: 'Doe',
+    salary: '25000',
+    department: 'HR',
+    lastCompany: 'X',
+    lastSalary: '10000',
+    overallExp: '2',
+    contactInfo: '1234567890',
+    yearGrad: '2016',
+    gradStream: 'CSE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d5d"),
+    firstName: 'Jame',
+    lastName: 'roh',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'EEE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d61"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'EEE'
+  },
+  {
+    _id: ObjectId("637f7c32575eca67fad43d65"),
+    firstName: 'Jame',
+    lastName: 'Doe',
+    salary: '35000',
+    department: 'Accounts',
+    lastCompany: 'Z',
+    lastSalary: '15000',
+    overallExp: '2',
+    contactInfo: '123567890',
+    yearGrad: '2019',
+    gradStream: 'EEE'
+  }
+]
+
+
 Question7:Query the collection "employee" and update the salary of the employee whose salary is greater than 70000 to 65000.
+
+Human_Resource> db.employee.updateMany({"salary":{$gt:"70000"}},{$set:{"salary":"65000"}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+
 Question8:Delete all the documents from "employee" where last company is Y.
+
+Human_Resource> db.employee.deleteMany({"lastCompany":"Y"});
+{ acknowledged: true, deletedCount: 6 }
+
+
